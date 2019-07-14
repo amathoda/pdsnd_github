@@ -3,6 +3,8 @@ import pandas as pd
 import numpy as np
 import calendar
 
+#Hi and welcome to my interactive bikeshare.py script. Follow as prompted :)
+
 CITY_DATA = { 'chicago': 'chicago.csv',
               'new york city': 'new_york_city.csv',
               'washington': 'washington.csv' }
@@ -17,7 +19,7 @@ def get_filters():
         (str) day - name of the day of week to filter by, or "all" to apply no day filter
     """
 
-    error_message_1="Sorry the value you entered is invalid, please try again using the following cities (chicago, new york city, washington)"
+    error_message_1="Sorry the value you entered is invalid, please try again!"
     print('Hello! Let\'s explore some US bikeshare data!')
 
     # TO DO: get user input for city (chicago, new york city, washington). HINT: Use a while loop to handle invalid inputs
