@@ -28,13 +28,15 @@ def get_filters():
         else:
             print(error_message_1)
 
+    error_message_2="Sorry the value you entered is invalid, please try again using the following months (january, february, march, april, may, june, all)"
+
     # TO DO: get user input for month (all, january, february, ... , june)
     while True:
         month= input('Please enter the name of the month to filter by, or "all" to apply no month filter (january, february, march, april, may, june, all)\n').lower()
         if month in ["january", "february", "march", "april", "may", "june", "all"]:
             break
         else:
-            print(error_message_1)
+            print(error_message_2)
 
     # TO DO: get user input for day of week (all, monday, tuesday, ... sunday)
     while True:
