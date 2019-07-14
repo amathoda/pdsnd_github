@@ -3,6 +3,8 @@ import pandas as pd
 import numpy as np
 import calendar
 
+#Hi and welcome to my interactive bikeshare.py script. Follow as prompted :)
+
 CITY_DATA = { 'chicago': 'chicago.csv',
               'new york city': 'new_york_city.csv',
               'washington': 'washington.csv' }
@@ -16,10 +18,10 @@ def get_filters():
         (str) month - name of the month to filter by, or "all" to apply no month filter
         (str) day - name of the day of week to filter by, or "all" to apply no day filter
     """
-    
+
     error_message_1="Sorry the value you entered is invalid, please try again!"
     print('Hello! Let\'s explore some US bikeshare data!')
-    
+
     # TO DO: get user input for city (chicago, new york city, washington). HINT: Use a while loop to handle invalid inputs
     while True:
         city= input('Please enter the name of the city to analyze (chicago, new york city, washington)\n').lower()
@@ -63,10 +65,10 @@ def load_data(city, month, day):
     data = CITY_DATA[city]
     print ("Analysis of the city database: " + data)
     df = pd.read_csv(data)
-          
+
     """Start Time column --> Datetime, change format"""
     df['Start Time'] = pd.to_datetime(arg = df['Start Time'], format = '%Y/%m/%d %H:%M:%S')
-    
+
     """Extract Month"""
     if month != 'all':
         df['month'] = df['Start Time'].dt.month
@@ -89,7 +91,7 @@ def time_stats(df):
     print('\nCalculating The Most Frequent Times of Travel...\n')
     start_time = time.time()
     df['Start Time'] = pd.to_datetime(arg = df['Start Time'], format = '%Y/%m/%d %H:%M:%S')
-    
+
     # TO DO: display the most common month
     print('The most common month is: ',calendar.month_name[df['Start Time'].dt.month.mode()[0]])
 
@@ -102,7 +104,7 @@ def time_stats(df):
     print("\nThis took %s seconds." % (time.time() - start_time))
     print('-'*40)
 
-    
+
 
 def station_stats(df):
     """Displays statistics on the most popular stations and trip."""
@@ -125,7 +127,7 @@ def station_stats(df):
     print("\nThis took %s seconds." % (time.time() - start_time))
     print('-'*40)
 
-    
+
 
 def trip_duration_stats(df):
     """Displays statistics on the total and average trip duration."""
@@ -139,7 +141,7 @@ def trip_duration_stats(df):
         d, h = divmod(h,24)
         y, d = divmod(d,365)
         print('Years: {}\nDays: {}\nHours: {}\nMins: {}\nSecs: {}'.format(y,d,h,m,s))
-        
+
     print('Total travel time:')
     change_time(df['Trip Duration'].sum())
 
@@ -150,7 +152,7 @@ def trip_duration_stats(df):
     print("\nThis took %s seconds." % (time.time() - start_time))
     print('-'*40)
 
-    
+
 
 def user_stats(df):
     """Displays statistics on bikeshare users."""
@@ -179,7 +181,7 @@ def user_stats(df):
 
     """Check on columns"""
     print(df.columns.unique())
-    
+
 def display_data(df):
     raw_data = input('\nWould you like to see 5 lines of raw data? Enter Y or N.\n')
     line = 0
@@ -190,8 +192,8 @@ def display_data(df):
             line += 5
             raw_data = input('\nWould you like to see 5 more lines raw data? Enter Y or N.\n')
         else:
-            break    
-            
+            break
+
 def main():
     while True:
         city, month, day = get_filters()
