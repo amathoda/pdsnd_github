@@ -11,5 +11,3 @@ Used Python and bikeshare data for three US cities (Chicago, New York and Washin
 chicago.csv
 new_york_city.csv
 washington.csv
-
-### Credits
